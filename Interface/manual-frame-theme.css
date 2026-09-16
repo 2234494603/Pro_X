@@ -1,0 +1,207 @@
+:root {
+  color-scheme: dark !important;
+}
+
+html {
+  background: transparent !important;
+}
+
+body,
+body[data-theme="light"] {
+  --bg: transparent;
+  --panel: rgba(7, 20, 24, .55);
+  --panel-2: rgba(12, 30, 35, .64);
+  --line: rgba(205, 255, 237, .15);
+  --text: #effaf5;
+  --muted: #aabbb5;
+  --accent: #c9ff63;
+  --accent-soft: rgba(201, 255, 99, .1);
+  --code: #bfffe0;
+  --good: #78efb8;
+  --warn: #ffd075;
+  --danger: #ff8c9b;
+  --shadow: 0 20px 54px rgba(0, 0, 0, .28);
+  color: var(--text) !important;
+  background: transparent !important;
+}
+
+.toolbar {
+  padding: 8px 18px !important;
+  background: rgba(3, 10, 15, .52) !important;
+  border-bottom-color: rgba(205, 255, 237, .14) !important;
+  backdrop-filter: blur(18px) saturate(1.25) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.25) !important;
+}
+
+.toolbar-inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px 10px;
+  max-width: 1280px !important;
+}
+
+.title-row,
+.topline {
+  display: contents !important;
+}
+
+.toolbar .brand,
+.toolbar .count,
+.toolbar .counter {
+  display: none !important;
+}
+
+.title-actions,
+.tools {
+  grid-column: 2;
+  grid-row: 1;
+  justify-content: flex-end;
+  gap: 6px !important;
+}
+
+.mode-row {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  margin: 0 !important;
+  gap: 6px !important;
+}
+
+.mode-btn,
+.mode {
+  min-height: 34px !important;
+  padding: 4px 9px !important;
+}
+
+.mode-btn small,
+.mode small {
+  display: none !important;
+}
+
+.search-wrap {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 0 !important;
+}
+
+#search {
+  min-height: 38px !important;
+}
+
+.filter-row {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  min-height: 30px;
+  margin: 0 !important;
+  gap: 6px !important;
+}
+
+#sectionFilter,
+.chip,
+.tool-btn {
+  min-height: 30px !important;
+}
+
+.mode-btn,
+#search,
+#sectionFilter,
+.chip,
+.tool-btn,
+.action-btn,
+.recipe-tab,
+.quiz-option,
+.notes-area {
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+  background: rgba(8, 23, 27, .5) !important;
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+.hero,
+.card,
+.callout,
+.quiz,
+.check-item,
+.stat,
+.state-node,
+.about-card,
+.info-card,
+table {
+  border-color: var(--line) !important;
+  background: rgba(7, 22, 25, .48) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.045), var(--shadow) !important;
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+}
+
+th {
+  color: #e4fff2 !important;
+  background: rgba(128, 255, 205, .1) !important;
+}
+
+tbody tr:hover {
+  background: rgba(201, 255, 99, .035) !important;
+}
+
+pre {
+  color: #eafff4 !important;
+  border-color: rgba(201, 255, 99, .15) !important;
+  background: rgba(2, 8, 12, .78) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+nav a:hover,
+nav a.active,
+.nav-active {
+  color: var(--text) !important;
+  background: rgba(201, 255, 99, .08) !important;
+}
+
+@media (max-width: 800px) {
+  .toolbar { padding: 7px 10px !important; }
+  .toolbar-inner { grid-template-columns: 1fr; gap: 6px; }
+  .title-actions,
+  .tools { grid-column: 1; grid-row: 1; }
+  .mode-row { grid-column: 1; grid-row: 2; }
+  .search-wrap { grid-row: 3; }
+  .filter-row { grid-row: 4; }
+}
+
+/* 保留主题与选中/答题反馈，避免统一玻璃背景盖住控件状态。 */
+main h2 { scroll-margin-top: var(--manual-toolbar-height, 190px) !important; }
+.mode-btn.active, .mode.active, .recipe-tab.active {
+  border-color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 16%, var(--panel)) !important;
+}
+.quiz-option.correct { border-color: var(--good) !important; background: color-mix(in srgb, var(--good) 18%, var(--panel)) !important; }
+.quiz-option.wrong { border-color: var(--danger) !important; background: color-mix(in srgb, var(--danger) 16%, var(--panel)) !important; }
+body[data-theme="light"] {
+  color-scheme: light;
+  --panel: rgba(239, 247, 249, .94);
+  --panel-2: rgba(218, 234, 240, .94);
+  --line: rgba(28, 76, 101, .24);
+  --text: #183142;
+  --muted: #426070;
+  --accent: #126889;
+  --code: #075c7a;
+  --good: #148355;
+  --danger: #b92d48;
+  background: rgba(230, 241, 246, .9) !important;
+}
+body[data-theme="light"] :is(.toolbar, .hero, .card, .callout, .quiz, .check-item, .stat, .state-node, .about-card, .info-card, table) { background: var(--panel) !important; }
+body[data-theme="light"] :is(.mode-btn, .mode, #search, #sectionFilter, .chip, .tool-btn, .action-btn, .recipe-tab, .quiz-option, .notes-area, .notes) { background: var(--panel-2) !important; color: var(--text) !important; }
+body[data-theme="light"] th { color: #194050 !important; background: rgba(49, 126, 161, .13) !important; }
+body[data-theme="light"] :is(.mode-btn.active, .mode.active, .recipe-tab.active) { background: #b3dbe9 !important; }
+body[data-theme="light"] .quiz-option.correct { background: #bce6d0 !important; }
+body[data-theme="light"] .quiz-option.wrong { background: #f1c6cd !important; }
+@media (max-width: 600px) {
+  .filter-row { flex-wrap: wrap !important; }
+  #sectionFilter { max-width: 100%; }
+  pre, table { max-width: 100%; }
+}
+@media print {
+  html, body, body[data-theme="light"] { background: white !important; color: black !important; }
+  :is(.hero, .card, .callout, .quiz, .check-item, .stat, .state-node, table, pre) { background: white !important; color: black !important; box-shadow: none !important; backdrop-filter: none !important; }
+}
