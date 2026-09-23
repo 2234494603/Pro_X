@@ -2,7 +2,7 @@
 
 // 正式故事文案与插画映射。每条 scene 对应一屏，界面与转场无需随文案修改。
 window.PROX_STORY_CONTENT = Object.freeze({
-  libraryHref: './SubPage_Html/KnowledgeBase/index.html',
+  libraryHref: './KnowledgeBase/index.html',
   title: '创办的初心',
   scenes: Object.freeze([
     { chapter: '序章', english: 'A LONG TIME AGO', text: '起初，我是班里的倒数第一。', image: '01-prologue-last-place.png', align: 'left' },

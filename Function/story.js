@@ -14,7 +14,7 @@
   const arts = [byId('storyArtA'), byId('storyArtB')];
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const fx = window.PROX_SPACE.create(byId('spaceTransition'));
-  const assetRoot = './SubPage_Html/Assets/Story/';
+  const assetRoot = './Assets/Story/';
   const imageCache = new Map();
   let view = 'home';
   let index = 0;

@@ -26,14 +26,14 @@
 
       function getHtml(module) {
         if (!htmlCache.has(module.id)) {
-          htmlCache.set(module.id, decoder.decode(bytesFromBase64(module.base64)));
+          htmlCache.set(module.id, typeof module.html === 'string' ? module.html : decoder.decode(bytesFromBase64(module.base64)));
         }
         return htmlCache.get(module.id);
       }
 
       function blobUrl(module) {
         if (!module.blobUrl) {
-          module.blobUrl = URL.createObjectURL(new Blob([bytesFromBase64(module.base64)], { type: 'text/html;charset=utf-8' }));
+          module.blobUrl = URL.createObjectURL(new Blob([getHtml(module)], { type: 'text/html;charset=utf-8' }));
         }
         return module.blobUrl;
       }
@@ -45,9 +45,9 @@
       }
 
       function framedHtml(module) {
-        const themeUrl = new URL('./SubPage_Html/Interface/manual-frame-theme.css', document.baseURI).href;
+        const themeUrl = new URL('./Interface/manual-frame-theme.css', document.baseURI).href;
         const themeLink = '<link rel="stylesheet" href="' + themeUrl + '">';
-        const behaviorUrl = new URL('./SubPage_Html/Function/manual-frame-behavior.js', document.baseURI).href;
+        const behaviorUrl = new URL('./Function/manual-frame-behavior.js', document.baseURI).href;
         const behaviorScript = '<script src="' + behaviorUrl + '"></script>';
         return getHtml(module).replace('</head>', themeLink + '</head>').replace('</body>', behaviorScript + '</body>');
       }
