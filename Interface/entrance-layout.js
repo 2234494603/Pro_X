@@ -7,30 +7,50 @@ document.getElementById('entranceRoot').innerHTML = String.raw`
     </video>
     <span class="entrance-stars"></span>
     <span class="entrance-scrim"></span>
+    <span class="space-orbit space-orbit-a"></span>
+    <span class="space-orbit space-orbit-b"></span>
   </div>
 
-  <main class="entrance-shell" aria-labelledby="entranceTitle">
+  <main class="entrance-shell" aria-labelledby="routeHeading">
+    <header class="entrance-masthead entrance-reveal">
+      <div class="entrance-brand-lockup">
+        <h1 class="entrance-title"><button class="pro-x-trigger" id="entranceTitle" type="button" aria-label="返回 Pro-X 主入口" aria-describedby="journeyHint"></button></h1>
+        <span class="brand-pulse" aria-hidden="true"></span>
+        <p class="journey-hint" id="journeyHint">返回 Pro-X 主入口 <span aria-hidden="true">↖</span></p>
+      </div>
+      <p class="entrance-eyebrow" id="entranceEyebrow"></p>
+    </header>
+
     <section class="entrance-content">
-      <p class="entrance-eyebrow entrance-reveal" id="entranceEyebrow"></p>
-      <h1 class="entrance-title entrance-reveal"><button class="pro-x-trigger" id="entranceTitle" type="button" aria-label="进入 Pro-X 故事" aria-describedby="journeyHint"></button></h1>
-      <p class="journey-hint" id="journeyHint">点击 Pro-X · 探索故事 <span aria-hidden="true">↗</span></p>
-
-      <div class="entrance-glass entrance-reveal">
-        <span class="entrance-rule entrance-rule-start" aria-hidden="true"></span>
-        <span class="entrance-quote-mark entrance-quote-mark-start" aria-hidden="true">“</span>
-        <p class="entrance-statement" id="entranceStatement"></p>
+      <div class="entrance-copy entrance-reveal">
+        <p class="entrance-overline">CHOOSE YOUR ORBIT</p>
+        <h2 class="entrance-statement" id="routeHeading"><span id="entranceStatement"></span></h2>
         <p class="entrance-attribution" id="entranceAttribution"></p>
-        <span class="entrance-quote-mark entrance-quote-mark-end" aria-hidden="true">”</span>
-        <span class="entrance-rule entrance-rule-end" aria-hidden="true"></span>
       </div>
 
-      <nav class="entrance-links entrance-reveal" id="entranceLinks" aria-label="知识库入口"></nav>
+      <div class="route-selector entrance-reveal" id="routeSelector">
+        <div class="route-topline">
+          <div class="route-tabs" id="routeTabs" role="tablist" aria-label="选择学习航线"></div>
+          <p class="route-instruction"><span class="instruction-wide">滚轮 / 拖动 / 方向键</span><span class="instruction-compact">滑动切换</span></p>
+        </div>
 
-      <div class="entrance-footer entrance-reveal">
-        <span class="entrance-orbit" aria-hidden="true"><i></i></span>
-        <span id="entranceFooter"></span>
+        <div class="route-viewport" id="routeViewport" aria-live="polite">
+          <span class="route-axis" aria-hidden="true"></span>
+          <div class="route-stack" id="routeStack"></div>
+          <button class="route-arrow route-arrow-prev" id="routePrevious" type="button" aria-label="上一条航线"><span aria-hidden="true">←</span></button>
+          <button class="route-arrow route-arrow-next" id="routeNext" type="button" aria-label="下一条航线"><span aria-hidden="true">→</span></button>
+        </div>
+
+        <div class="route-progress" aria-hidden="true"><span id="routeProgress"></span></div>
+        <p class="entrance-status" id="entranceStatus" role="status" aria-live="polite"></p>
       </div>
-      <p class="entrance-status" id="entranceStatus" role="status" aria-live="polite"></p>
     </section>
+
+    <footer class="entrance-footer entrance-reveal">
+      <span class="entrance-orbit" aria-hidden="true"><i></i></span>
+      <span id="entranceFooter"></span>
+      <span class="footer-separator" aria-hidden="true"></span>
+      <span>BUILD · TEST · ITERATE</span>
+    </footer>
   </main>
 `;
